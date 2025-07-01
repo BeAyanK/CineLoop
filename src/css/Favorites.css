@@ -2,6 +2,7 @@
   padding: 2rem;
   width: 100%;
   box-sizing: border-box;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
 }
 
 .favorites h2 {
@@ -48,4 +49,15 @@
 
 .movies-grid > * {
   animation: fadeIn 0.3s ease-out forwards;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  color: #ffce64;
+  text-align: left;
+  padding-left: 1rem;
+  font-family: 'Manrope', sans-serif;
+  position: relative;
 }

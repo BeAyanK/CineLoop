@@ -10,6 +10,26 @@
 .navbar-brand {
   font-size: 1.5rem;
   font-weight: bold;
+  max-height: 50px;
+}
+
+.navbar-brand img {
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+
+.navbar-brand:hover img {
+  transform: scale(1.2);
+  animation: continuous-rotate 2.5s linear infinite;
+}
+
+@keyframes continuous-rotate {
+  from {
+    transform: scale(1.2) rotate(0deg);
+  }
+  to {
+    transform: scale(1.2) rotate(360deg);
+  }
 }
 
 .navbar-links {
@@ -32,16 +52,20 @@
   .navbar {
     padding: 1rem;
   }
-
   .navbar-brand {
     font-size: 1.2rem;
   }
-
   .navbar-links {
     gap: 1rem;
   }
-
   .nav-link {
     padding: 0.5rem;
   }
+}
+
+.manrope-500 {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }

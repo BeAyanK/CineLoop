@@ -9,9 +9,10 @@ function App() {
 
 
   return (
-    <MovieProvider>
+    <MovieProvider >
       <NavBar />
       <main className='main-content'>
+        <img className='logo' src="./cineloop.png" alt="CineLoop" />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/favorites' element={<Favorites />} />

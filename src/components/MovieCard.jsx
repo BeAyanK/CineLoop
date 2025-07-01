@@ -11,11 +11,12 @@ const MovieCard = ({movie}) => {
             removeFromFavorites(movie.id)
         } else {
             addToFavorites(movie)
+            console.log( movie)
         }
     }
 
     return (
-        <div className='movie-card' height="200px" width="150px">
+        <div className='movie-card' max-height="200px" max-width="150px">
             <div className='movie-poster'>
                 <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
                 <div className="movie-overlay">
@@ -25,8 +26,8 @@ const MovieCard = ({movie}) => {
                 </div>
             </div>
             <div className="movie-info">
-                <h3>{movie.title}</h3>
-                <p>{movie.release_date?.split('-')[0]}</p>
+                <h3 className='manrope-700'>{movie.title}</h3> <p></p>
+                <p className='manrope-500'>{movie.vote_average}/10 <br /> Release Date: {movie.release_date}</p>
             </div>
         </div>
     )

@@ -2,7 +2,7 @@
   position: relative;
   border-radius: 8px;
   overflow: hidden;
-  background-color: #1a1a1a;
+  background-color: #fdfdfd;
   transition: transform 0.2s;
   height: 100%;
   display: flex;
@@ -23,6 +23,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  padding: 15px;
+  
 }
 
 .movie-overlay {
@@ -94,10 +96,11 @@
 .movie-info h3 {
   font-size: 1rem;
   margin: 0;
+  color: #000000;
 }
 
 .movie-info p {
-  color: #999;
+  color: #333333;
   font-size: 0.9rem;
 }
 
@@ -107,9 +110,10 @@
   margin-top: auto;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 740px) {
   .movie-card {
     font-size: 0.9rem;
+    border-radius: 8px;
   }
 
   .movie-info {
@@ -122,3 +126,19 @@
     font-size: 1.2rem;
   }
 }
+
+
+.manrope-500 {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.manrope-700 {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
