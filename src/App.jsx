@@ -3,12 +3,13 @@ import Home from './pages/Home'
 import Favorites from './pages/Favorites'
 import NavBar from './components/NavBar'
 import { Routes, Route } from 'react-router-dom'
+import { MovieProvider } from './contexts/MovieContext'
 
 function App() {
 
 
   return (
-    <>
+    <MovieProvider>
       <NavBar />
       <main className='main-content'>
         <Routes>
@@ -17,7 +18,7 @@ function App() {
           <Route path='*' element={<h1>Page Not Found</h1>} />
         </Routes>
       </main>
-    </>
+    </MovieProvider>
   )
 }
 
