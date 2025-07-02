@@ -9,6 +9,13 @@
   flex-direction: column;
 }
 
+.movie-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  padding: 0.5rem;   
+}
+
 .movie-card:hover {
   transform: translateY(-5px);
 }
@@ -17,14 +24,6 @@
   position: relative;
   aspect-ratio: 2/3;
   width: 100%;
-}
-
-.movie-poster img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  padding: 15px;
-  
 }
 
 .movie-overlay {
@@ -85,6 +84,8 @@
   margin-top: 0.5rem;
 }
 
+/* Existing styles remain the same until .movie-info */
+
 .movie-info {
   padding: 1rem;
   flex: 1;
@@ -94,14 +95,67 @@
 }
 
 .movie-info h3 {
-  font-size: 1rem;
+  font-size: 1.1rem;  /* Base font size */
   margin: 0;
   color: #000000;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .movie-info p {
   color: #333333;
-  font-size: 0.9rem;
+  font-size: 0.95rem; /* Base font size */
+  line-height: 1.4;
+}
+
+/* Responsive font sizes */
+@media (max-width: 1400px) {
+  .movie-info h3 {
+    font-size: 1.05rem;
+  }
+  .movie-info p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .movie-info h3 {
+    font-size: 1rem;
+  }
+  .movie-info p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .movie-info h3 {
+    font-size: 0.95rem;
+  }
+  .movie-info p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .movie-info h3 {
+    font-size: 0.9rem;
+  }
+  .movie-info p {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .movie-info h3 {
+    font-size: 0.85rem;
+    -webkit-line-clamp: 1; /* Single line for smallest screens */
+  }
+  .movie-info p {
+    font-size: 0.7rem;
+  }
 }
 
 .user-rating {
@@ -110,7 +164,7 @@
   margin-top: auto;
 }
 
-@media (max-width: 740px) {
+/* @media (max-width: 740px) {
   .movie-card {
     font-size: 0.9rem;
     border-radius: 8px;
@@ -125,8 +179,31 @@
     height: 32px;
     font-size: 1.2rem;
   }
+} */
+
+@media (max-width: 1200px) {
+  .movies-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
 }
 
+@media (max-width: 992px) {
+  .movies-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .movies-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  .movies-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 .manrope-500 {
   font-family: "Manrope", sans-serif;

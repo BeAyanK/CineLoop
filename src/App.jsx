@@ -1,7 +1,8 @@
 import './css/App.css'
+import NavBar from './components/NavBar'
 import Home from './pages/Home'
 import Favorites from './pages/Favorites'
-import NavBar from './components/NavBar'
+import About from './pages/About'
 import { Routes, Route } from 'react-router-dom'
 import { MovieProvider } from './contexts/MovieContext'
 
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/favorites' element={<Favorites />} />
+          <Route path='/about' element={<About />}></Route>
           <Route path='*' element={<h1>Page Not Found</h1>} />
         </Routes>
       </main>

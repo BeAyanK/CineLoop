@@ -117,7 +117,7 @@ const Home = () => {
                     <section className="movie-section">
                         <h1 className='manrope-700'>Popular Movies</h1>
                         <div className="movies-grid">
-                            {popularMovies.slice(0, 8).map((movie) => (
+                            {popularMovies.slice(0, 10).map((movie) => (
                                 <MovieCard key={`popular-${movie.id}`} movie={movie} />
                             ))}
                         </div>

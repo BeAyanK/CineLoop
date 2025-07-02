@@ -5,6 +5,9 @@ import { useMovieContext } from '../contexts/MovieContext'
 const MovieCard = ({movie}) => {
     const {isFavorite, addToFavorites, removeFromFavorites} = useMovieContext()
     const favorite = isFavorite(movie.id)
+
+    const formattedRating = movie.vote_average.toFixed(1);
+
     function onFavoriteClick(e) {
         e.preventDefault()
         if (favorite) {
@@ -27,7 +30,7 @@ const MovieCard = ({movie}) => {
             </div>
             <div className="movie-info">
                 <h3 className='manrope-700'>{movie.title}</h3> <p></p>
-                <p className='manrope-500'>{movie.vote_average}/10 <br /> Release Date: {movie.release_date}</p>
+                <p className='manrope-500'>Rating: {formattedRating}/10 <br /> Release Date: {movie.release_date}</p>
             </div>
         </div>
     )

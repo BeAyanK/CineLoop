@@ -15,9 +15,12 @@ export const getNowPlayingMovies = async () => {
 };
 
 export const getUpcomingMovies = async () => {
-    const response = await fetch(`${BASE_URL}/movie/upcoming?api_key=${API_KEY}`);
-    const data = await response.json();
-    return data.results;
+  const today = new Date().toISOString().split('T')[0];
+  const response = await fetch(
+    `${BASE_URL}/movie/upcoming?api_key=${API_KEY}&primary_release_date.gte=${today}`
+  );
+  const data = await response.json();
+  return data.results;
 };
 
 export const getTopRatedMovies = async () => {
