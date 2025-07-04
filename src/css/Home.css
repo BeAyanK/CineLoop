@@ -1,3 +1,18 @@
+.home {
+padding: 0 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+}
+
+.tagline {
+    font-size: 1.2rem;
+    color: #aaa;
+    /* margin-top: 0.5rem; */
+    text-align: center;
+    margin: 2rem auto;
+}
+
 /* Search Form */
 .search-form {
   max-width: 700px;
@@ -124,3 +139,4 @@
     font-size: 0.9rem;
   }
 }
+

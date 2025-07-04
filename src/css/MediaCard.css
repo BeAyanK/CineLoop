@@ -74,18 +74,6 @@
   color: #ff4757;
 }
 
-.rating-select {
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  border: none;
-  padding: 0.5rem;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 0.5rem;
-}
-
-/* Existing styles remain the same until .movie-info */
-
 .movie-info {
   padding: 1rem;
   flex: 1;
@@ -95,19 +83,19 @@
 }
 
 .movie-info h3 {
-  font-size: 1.1rem;  /* Base font size */
+  font-size: 1.1rem;
   margin: 0;
   color: #000000;
   line-height: 1.3;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
 .movie-info p {
   color: #333333;
-  font-size: 0.95rem; /* Base font size */
+  font-size: 0.95rem;
   line-height: 1.4;
 }
 
@@ -151,57 +139,10 @@
 @media (max-width: 576px) {
   .movie-info h3 {
     font-size: 0.85rem;
-    -webkit-line-clamp: 1; /* Single line for smallest screens */
+    -webkit-line-clamp: 1;
   }
   .movie-info p {
     font-size: 0.7rem;
-  }
-}
-
-.user-rating {
-  color: #ffd700;
-  font-size: 0.9rem;
-  margin-top: auto;
-}
-
-/* @media (max-width: 740px) {
-  .movie-card {
-    font-size: 0.9rem;
-    border-radius: 8px;
-  }
-
-  .movie-info {
-    padding: 0.75rem;
-  }
-
-  .favorite-btn {
-    width: 32px;
-    height: 32px;
-    font-size: 1.2rem;
-  }
-} */
-
-@media (max-width: 1200px) {
-  .movies-grid {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  }
-}
-
-@media (max-width: 992px) {
-  .movies-grid {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  }
-}
-
-@media (max-width: 768px) {
-  .movies-grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  }
-}
-
-@media (max-width: 576px) {
-  .movies-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -219,3 +160,13 @@
   font-style: normal;
 }
 
+.movie-card.error {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}

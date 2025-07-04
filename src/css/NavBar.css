@@ -109,6 +109,11 @@ nav.navbar-links .item:hover {
   z-index: 2;
   pointer-events: none;
   transition: 0.35s;
+  opacity: 0;
+}
+
+.navbar-links:hover .underline {
+  opacity: 1;
 }
 
 nav.navbar-links .item:hover > .dropdown > div {
@@ -119,31 +124,37 @@ nav.navbar-links .item:hover > .dropdown > div {
 nav.navbar-links .item:nth-child(1):hover ~ .underline {
   translate: 20px;
   width: 56px; /* Home width */
+  opacity: 1;
 }
 
 nav.navbar-links .item:nth-child(2):hover ~ .underline {
   translate: 111px; /* Home width + padding */
   width: 71px; /* Movies width */
+  opacity: 1;
 }
 
 nav.navbar-links .item:nth-child(3):hover ~ .underline {
   translate: 211px; /* Home + Movies widths + paddings */
   width: 94px; /* TV Shows width */
+  opacity: 1;
 }
 
 nav.navbar-links .item:nth-child(4):hover ~ .underline {
   translate: 336px; /* Previous items + paddings */
   width: 85px; /* People width */
+  opacity: 1;
 }
 
 nav.navbar-links .item:nth-child(5):hover ~ .underline {
   translate:450px; /* Previous items + paddings */
   width: 70px; /* Favorites width */
+  opacity: 1;
 }
 
 /* nav.navbar-links .item:nth-child(6):hover ~ .underline {
   translate: 550px; Previous items + paddings
   width: 70px; About width
+  opacity: 1;
 } */
 
 /* Mobile Styles */

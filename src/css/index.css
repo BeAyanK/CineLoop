@@ -58,10 +58,10 @@ a:hover {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-  text-decoration: underline;
+  /* text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 8px;
-    text-decoration-color: #ffce64;
+    text-decoration-color: #ffce64; */
 }
 
 button {
@@ -101,4 +101,29 @@ button:focus-visible {
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
+}
+
+.manrope-400 {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.manrope-700 {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.manrope-600 {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+hr{
+  margin: 2rem 0;
 }

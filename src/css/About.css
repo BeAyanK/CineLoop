@@ -1,119 +1,203 @@
 .about {
-    padding: 0 2rem;
-    width: 100%;
-    max-width: 1400px;
-    margin: -1rem auto;
-    box-sizing: border-box;
+    padding-bottom: 2rem;
     background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
     min-height: 100vh;
-    color: #ffffff;
+    color: white;
 }
 
 .about-container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-.about h1 {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: #ffce64;
+.development-notice {
+    background-color: #fff8e6;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #ffc107;
+    margin-bottom: 30px;
+}
+
+.development-notice ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.development-notice li {
+    margin-bottom: 8px;
+}
+
+.about-header {
     text-align: center;
-    position: relative;
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 8px;
-    text-decoration-color: #ffce64;
+    /* margin-bottom: 3rem; */
+    /* padding: 2rem 0; */
+    /* border-bottom: 1px solid rgba(255, 206, 100, 0.3); */
 }
 
-/* .about h1::after {
-    content: '';
-    position: absolute;
-    margin: 0 auto;
+.logo-highlight {
+    color: #ffce64;
+    text-shadow: 0 0 10px rgba(255, 206, 100, 0.5);
+}
 
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 150px;
-    height: 4px;
-    background: linear-gradient(90deg, #ffce64, #ff6b6b);
-    border-radius: 2px;
-} */
+.tagline {
+    font-size: 1.2rem;
+    color: #aaa;
+    margin-top: 0.5rem;
+}
 
 .about-section {
     margin-bottom: 3rem;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
     padding: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.about h2 {
-    font-size: 1.8rem;
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     margin-bottom: 1.5rem;
-    color: #ffce64;
 }
 
-.about p {
-    line-height: 1.6;
+.section-icon {
+    font-size: 1.5rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.feature-icon {
+    font-size: 2rem;
     margin-bottom: 1rem;
-    color: rgba(255, 255, 255, 0.9);
 }
 
-.features-list {
-    list-style-type: none;
-    padding-left: 0;
+.coverage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
 }
 
-.features-list li {
-    position: relative;
+.coverage-card {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.coverage-card ul {
     padding-left: 1.5rem;
-    margin-bottom: 0.8rem;
-    line-height: 1.5;
+    margin-top: 1rem;
 }
 
-.features-list li::before {
-    content: '•';
+.coverage-card li {
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.coverage-card li::before {
+    content: "•";
     color: #ffce64;
     position: absolute;
-    left: 0;
-    font-size: 1.2rem;
+    left: -1rem;
 }
 
 .tech-stack {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
+    margin-top: 1.5rem;
 }
 
 .tech-item {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 1rem;
-    border-radius: 8px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
 }
 
-.tech-name {
-    font-weight: 600;
-    color: #ffce64;
-    margin-bottom: 0.3rem;
+.tech-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
 }
 
-.tech-desc {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
+.tech-logo.react {
+    background: #61dafb;
+    color: #282c34;
+}
+
+.tech-logo.tmdb {
+    background: #01d277;
+    color: white;
+}
+
+.tech-logo.css {
+    background: #2965f1;
+    color: white;
+}
+
+.contact-section {
+    text-align: center;
+}
+
+.contact-methods {
+    margin-top: 1.5rem;
 }
 
 .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     color: #ffce64;
     text-decoration: none;
-    transition: color 0.2s;
+    padding: 0.8rem 1.5rem;
+    border: 1px solid #ffce64;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
 .contact-link:hover {
-    color: #ff9f64;
+    background: rgba(255, 206, 100, 0.1);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.social-link {
+    color: #ffce64;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.social-link:hover {
+    opacity: 0.8;
     text-decoration: underline;
 }
 
@@ -125,46 +209,41 @@
 .home-link {
     color: #ffce64;
     text-decoration: none;
-    font-size: 1.1rem;
     display: inline-flex;
     align-items: center;
-    transition: all 0.2s;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border: 1px solid #ffce64;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
 .home-link:hover {
-    color: #ff9f64;
-    transform: translateX(-5px);
+    background: rgba(255, 206, 100, 0.1);
 }
 
-/* Responsive Design */
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    .about {
-        padding: 3rem 1.5rem;
+    .about-section {
+        padding: 1.5rem;
     }
-
-    .about h1 {
-        font-size: 2rem;
-    }
-
-    .about h2 {
-        font-size: 1.5rem;
-    }
-
-    .tech-stack {
+    
+    .features-grid, .coverage-grid {
         grid-template-columns: 1fr;
     }
 }
 
 @media (max-width: 480px) {
     .about {
-        padding: 2rem 1rem;
+        padding: 1rem;
     }
-
-    .about-section {
-        padding: 1.5rem;
+    
+    .about-header {
+        padding: 1rem 0;
     }
-
-    .about h1 {
-        font-size: 1.8rem;
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }

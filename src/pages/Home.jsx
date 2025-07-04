@@ -1,44 +1,39 @@
 import React from 'react'
-import MovieCard from '../components/MovieCard'
+import MediaCard from '../components/MediaCard'
 import { useState, useEffect } from 'react'
-import { searchMovies, getPopularMovies, getNowPlayingMovies, getUpcomingMovies, getTopRatedMovies } from '../services/api'
+import { getTrendingMovies, getTrendingTVShows, multiSearch } from '../services/api'
 import '../css/Home.css'
+import '../css/MediaGridPage.css'
 
 const Home = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [searchResults, setSearchResults] = useState([]);
-    const [popularMovies, setPopularMovies] = useState([]);
-    const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
-    const [upcomingMovies, setUpcomingMovies] = useState([]);
-    const [topRatedMovies, setTopRatedMovies] = useState([]);
+    const [trendingMovies, setTrendingMovies] = useState([]);
+    const [trendingTVShows, setTrendingTVShows] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
     const [searchMode, setSearchMode] = useState(false);
 
     useEffect(() => {
-        const loadAllMovies = async () => {
+        const loadTrendingContent = async () => {
             try {
-                const [popular, nowPlaying, upcoming, topRated] = await Promise.all([
-                    getPopularMovies(),
-                    getNowPlayingMovies(),
-                    getUpcomingMovies(),
-                    getTopRatedMovies()
+                const [movies, tvShows] = await Promise.all([
+                    getTrendingMovies(),
+                    getTrendingTVShows()
                 ]);
 
-                setPopularMovies(popular);
-                setNowPlayingMovies(nowPlaying);
-                setUpcomingMovies(upcoming);
-                setTopRatedMovies(topRated);
+                setTrendingMovies(movies.slice(0, 15));
+                setTrendingTVShows(tvShows.slice(0, 15));
                 setError(null);
             } catch (error) {
                 console.error(error);
-                setError("Failed to fetch movies. Please try again later.");
+                setError("Failed to fetch trending content. Please try again later.");
             } finally {
                 setLoading(false);
             }
         };
 
-        loadAllMovies();
+        loadTrendingContent();
     }, []);
 
     const handleSearch = async (e) => {
@@ -53,12 +48,16 @@ const Home = () => {
         setLoading(true);
         setSearchMode(true);
         try {
-            const results = await searchMovies(searchQuery);
-            setSearchResults(results);
+            const results = await multiSearch(searchQuery);
+            // Filter out results that don't have a poster and aren't movies or tv shows
+            const filteredResults = results.filter(item =>
+                item.poster_path && (item.media_type === 'movie' || item.media_type === 'tv')
+            );
+            setSearchResults(filteredResults);
             setError(null);
         } catch (error) {
             console.log(error);
-            setError("Failed to search movies...");
+            setError("Failed to search movies and TV shows...");
         } finally {
             setLoading(false);
         }
@@ -79,12 +78,13 @@ const Home = () => {
     }
 
     return (
-        <div className='home'>
+        <div className='home media-grid-page'>
+            <p className="tagline manrope-400">Your Gateway to Cinematic Discovery</p>
             <form onSubmit={handleSearch} className="search-form">
                 <input
                     type="text"
                     className="search-input manrope-500"
-                    placeholder="Search for a movie..."
+                    placeholder="Search for movies or TV shows..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                 />
@@ -101,57 +101,53 @@ const Home = () => {
             {searchMode ? (
                 <>
                     <h1 className='manrope-700'>Search Results for "{searchQuery}"</h1>
-                    <div className="movies-grid">
-                        {searchResults.length > 0 ? (
-                            searchResults.map((movie) => (
-                                <MovieCard key={movie.id} movie={movie} />
-                            ))
-                        ) : (
-                            <div className="no-results">No movies found for your search.</div>
-                        )}
-                    </div>
+                    {searchResults.length > 0 ? (
+                        <div className="movies-grid">
+                            {searchResults.map((item) => (
+                                <MediaCard
+                                    key={`${item.media_type}-${item.id}`}
+                                    media={item}
+                                    type={item.media_type}
+                                />
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="no-results">No movies or TV shows found for your search.</div>
+                    )}
                 </>
             ) : (
                 <>
-                    {/* Popular Movies Section */}
-                    <section className="movie-section">
-                        <h1 className='manrope-700'>Popular Movies</h1>
+                    {/* Trending Movies Section */}
+                    <> <section className="movie-section">
+                        <h1 className='manrope-700'>Trending Movies This Week</h1>
                         <div className="movies-grid">
-                            {popularMovies.slice(0, 10).map((movie) => (
-                                <MovieCard key={`popular-${movie.id}`} movie={movie} />
-                            ))}
+                            {trendingMovies.length > 0 ? (
+                                trendingMovies.map((movie) => (
+                                    <MediaCard key={`trending-movie-${movie.id}`} media={movie} type="movie" />
+                                ))
+                            ) : (
+                                <div className="no-results">No trending movies available.</div>
+                            )}
                         </div>
-                    </section>
+                    </section><hr className='hr'/></>
 
-                    {/* Now Playing Movies Section */}
-                    <section className="movie-section">
-                        <h1 className='manrope-700'>Now in Cinemas</h1>
+                    {/* Trending TV Shows Section */}
+                    <><section className="movie-section">
+                        <h1 className='manrope-700'>Trending TV Shows This Week</h1>
                         <div className="movies-grid">
-                            {nowPlayingMovies.slice(0, 8).map((movie) => (
-                                <MovieCard key={`now-playing-${movie.id}`} movie={movie} />
-                            ))}
+                            {trendingTVShows.length > 0 ? (
+                                trendingTVShows.map((show) => (
+                                    <MediaCard
+                                        key={`trending-tv-${show.id}`}
+                                        media={show}
+                                        type="tv"
+                                    />
+                                ))
+                            ) : (
+                                <div className="no-results">No trending TV shows available.</div>
+                            )}
                         </div>
-                    </section>
-
-                    {/* Top Rated Movies Section */}
-                    <section className="movie-section">
-                        <h1 className='manrope-700'>Top Rated</h1>
-                        <div className="movies-grid">
-                            {topRatedMovies.slice(0, 8).map((movie) => (
-                                <MovieCard key={`top-rated-${movie.id}`} movie={movie} />
-                            ))}
-                        </div>
-                    </section>
-
-                    {/* Upcoming Movies Section */}
-                    <section className="movie-section">
-                        <h1 className='manrope-700'>Upcoming Movies</h1>
-                        <div className="movies-grid">
-                            {upcomingMovies.slice(0, 8).map((movie) => (
-                                <MovieCard key={`upcoming-${movie.id}`} movie={movie} />
-                            ))}
-                        </div>
-                    </section>
+                    </section><hr className='hr' /></>
                 </>
             )}
         </div>

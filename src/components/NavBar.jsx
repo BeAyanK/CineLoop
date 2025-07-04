@@ -39,8 +39,8 @@ const NavBar = () => {
                         <div className="mobile-dropdown-header">TV Shows</div>
                         <div className="mobile-dropdown-content">
                             <Link to="/tv/popular" className='nav-link' onClick={toggleMenu}>Popular</Link>
-                            <Link to="/tv/now-showing" className='nav-link' onClick={toggleMenu}>Now Showing</Link>
-                            <Link to="/tv/upcoming" className='nav-link' onClick={toggleMenu}>Upcoming</Link>
+                            <Link to="/tv/airing-today" className='nav-link' onClick={toggleMenu}>Airing Today</Link>
+                            <Link to="/tv/on-tv" className='nav-link' onClick={toggleMenu}>on TV</Link>
                             <Link to="/tv/top-rated" className='nav-link' onClick={toggleMenu}>Top Rated</Link>
                         </div>
                     </div>
