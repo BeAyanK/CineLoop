@@ -1,0 +1,203 @@
+/* TVShowDetail.css */
+.tvshow-detail-container {
+    color: white;
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+    min-height: 100vh;
+    padding-bottom: 3rem;
+}
+
+.tvshow-backdrop {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    min-height: 500px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.tvshow-poster-container {
+    position: relative;
+    width: 300px;
+    height: 450px;
+    margin-right: 2rem;
+    flex-shrink: 0;
+}
+
+.tvshow-poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.9);
+}
+
+.tvshow-header-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    padding-bottom: 2rem;
+}
+
+.tvshow-title {
+    font-size: 3rem;
+    margin: 0 0 1rem 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.tvshow-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #ccc;
+    align-items: center;
+}
+
+.tvshow-genres {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.tvshow-networks {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.network {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.network-logo {
+    max-height: 30px;
+    max-width: 100px;
+    object-fit: contain;
+}
+
+.seasons-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.season-card {
+    display: flex;
+    gap: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.season-card:hover {
+    transform: translateY(-3px);
+}
+
+.season-poster {
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.season-info {
+    flex: 1;
+}
+
+.season-meta {
+    color: #aaa;
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+}
+
+.season-overview {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #ddd;
+}
+
+/* Reuse all other styles from MovieDetail.css */
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .tvshow-backdrop {
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+    
+    .tvshow-poster-container {
+        width: 200px;
+        height: 300px;
+        margin-right: 0;
+        margin-bottom: 1.5rem;
+    }
+    
+    .tvshow-header-info {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .tvshow-title {
+        font-size: 2rem;
+        text-align: center;
+    }
+    
+    .tvshow-networks {
+        justify-content: center;
+    }
+    
+    .season-card {
+        flex-direction: column;
+    }
+    
+    .season-poster {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 2/3;
+    }
+}
+
+@media (max-width: 768px) {
+    .tvshow-content {
+        padding: 1rem;
+    }
+    
+    .tvshow-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .tvshow-poster-container {
+        width: 150px;
+        height: 225px;
+    }
+    
+    .tvshow-title {
+        font-size: 1.5rem;
+    }
+    
+    .tvshow-meta {
+        font-size: 0.9rem;
+        gap: 1rem;
+    }
+    
+    .tvshow-overview {
+        font-size: 1rem;
+    }
+}

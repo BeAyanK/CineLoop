@@ -21,7 +21,6 @@ const About = () => {
                         <ul>
                             <li>This is a demo version without user accounts</li>
                             <li>Your saved favorites are stored locally in your browser</li>
-                            <li>You can't open media items to view their detailed information yet</li>
                             <li>Features may change as we continue to improve the platform</li>
                         </ul>
                         Thank you for testing CineLoop during this development phase!

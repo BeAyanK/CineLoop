@@ -11,6 +11,8 @@ import PopularTVShows from './pages/PopularTVShows'
 import AiringTodayTVShows from './pages/AiringTodayTVShows'
 import OnTVShows from './pages/OnTVShows'
 import TopRatedTVShows from './pages/TopRatedTVShows'
+import MovieDetail from './pages/MovieDetail'
+import TVShowDetail from './pages/TVShowDetail'
 import { Routes, Route } from 'react-router-dom'
 import { MovieProvider } from './contexts/MovieContext'
 
@@ -36,8 +38,8 @@ function App() {
           <Route path='/tv/top-rated' element={<TopRatedTVShows />} />
           <Route path='/search/:query' element={<Home />} />
           <Route path='/search' element={<Home />} />
-          <Route path='/movie/:id' element={<Home category='movie' />} />
-          <Route path='/tv/:id' element={<Home category='tv' />} />
+          <Route path='/movie/:id' element={<MovieDetail />} />
+          <Route path='/tv/:id' element={<TVShowDetail />} />
           <Route path='/favorites/:id' element={<Favorites />} />
           <Route path='*' element={<h1>Page Not Found</h1>} />
         </Routes>

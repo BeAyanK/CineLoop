@@ -2,10 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import '../css/MediaCard.css'
 import { useMovieContext } from '../contexts/MovieContext'
+import { useNavigate } from 'react-router-dom' // Add this import
 
 const MediaCard = ({ media = {}, type = 'movie' }) => {
-    // Add default empty object and type
     const { isFavorite, addToFavorites, removeFromFavorites } = useMovieContext()
+    const navigate = useNavigate() // Initialize the navigate function
     
     // Safe property access with defaults
     const favorite = isFavorite(media?.id || 0)
@@ -17,7 +18,7 @@ const MediaCard = ({ media = {}, type = 'movie' }) => {
         : '/placeholder-image.jpg'
 
     function onFavoriteClick(e) {
-        e.preventDefault()
+        e.stopPropagation() // Prevent triggering the card click when clicking favorite
         if (!media?.id) return
         
         if (favorite) {
@@ -27,8 +28,15 @@ const MediaCard = ({ media = {}, type = 'movie' }) => {
                 ...media, 
                 media_type: type || (media.media_type ? media.media_type : 'movie') 
             })
-            console.log( media)
         }
+    }
+
+    // Function to handle card click
+    const handleCardClick = () => {
+        if (!media?.id) return;
+        
+        // Navigate to the appropriate detail page based on media type
+        navigate(`/${type}/${media.id}`);
     }
 
     if (!media) {
@@ -36,7 +44,7 @@ const MediaCard = ({ media = {}, type = 'movie' }) => {
     }
 
     return (
-        <div className='movie-card'>
+        <div className='movie-card' onClick={handleCardClick}>
             <div className='movie-poster'>
                 <img src={posterPath} alt={title} />
                 <div className="movie-overlay">
@@ -55,6 +63,7 @@ const MediaCard = ({ media = {}, type = 'movie' }) => {
         </div>
     )
 }
+
 
 MediaCard.propTypes = {
     media: PropTypes.shape({
