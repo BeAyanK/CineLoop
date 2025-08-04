@@ -154,9 +154,9 @@ const About = () => {
                             <span className="contact-icon">✉️</span> beaayank@gmail.com
                         </a>
                         <div className="social-links">
-                            <a href="#" className="social-link">LinkedIn</a>
-                            <a href="#" className="social-link">Twitter</a>
-                            <a href="#" className="social-link">GitHub</a>
+                            <a href="https://www.linkedin.com/in/ayan-khan-work/" className="social-link">LinkedIn</a>
+                            <a href="https://twitter.com/ChhodoYrr" className="social-link">Twitter</a>
+                            <a href="https://github.com/BeAyanK" className="social-link">GitHub</a>
                         </div>
                     </div>
                 </div>
